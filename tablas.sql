@@ -13,19 +13,18 @@ CREATE TABLE Vendedor (
 );
 
 -- Tabla Producto
-CREATE TABLE Producto (
+CREATE TABLE producto (
     id INT PRIMARY KEY IDENTITY(1,1),
     nombre NVARCHAR(100) NOT NULL,
     precio DECIMAL(10, 2) NOT NULL
 );
 
 -- Tabla Venta
-CREATE TABLE Venta (
+CREATE TABLE venta (
     id INT PRIMARY KEY IDENTITY(1,1),
     idProducto INT NOT NULL,
     idVendedor INT NOT NULL,
     cantidad INT NOT NULL,
-    fecha DATETIME NOT NULL,
-    FOREIGN KEY (idProducto) REFERENCES Producto(id),
-    FOREIGN KEY (idVendedor) REFERENCES Vendedor(id)
+    CONSTRAINT FK_Venta_Producto FOREIGN KEY (ProductoId) REFERENCES Producto(Id),
+    CONSTRAINT FK_Venta_Vendedor FOREIGN KEY (VendedorId) REFERENCES Vendedor(Id)
 );
