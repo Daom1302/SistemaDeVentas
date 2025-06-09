@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Ventas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light p-4">
+  <div class="container">
+    <h1 class="mb-4 text-primary">Gestión de Ventas</h1>
+
+    <!-- Botones de navegación -->
+    <div class="mb-4 d-flex gap-2">
+      <button class="btn btn-outline-primary" onclick="mostrarVista('producto')">Agregar Producto</button>
+      <button class="btn btn-outline-primary" onclick="mostrarVista('vendedor')">Agregar Vendedor</button>
+      <button class="btn btn-outline-success" onclick="mostrarVista('venta')">Registrar Venta</button>
+    </div>
+
+    <!-- Vista: Agregar Producto -->
+    <div id="vista-producto" class="vista">
+      <h2 class="h4 mb-3">Agregar Producto</h2>
+      <form id="productoForm" class="row g-3 mb-4">
+        <div class="col-md-5">
+          <input type="text" id="nombre" class="form-control" placeholder="Nombre del producto" required />
+        </div>
+        <div class="col-md-4">
+          <input type="number" id="precio" class="form-control" placeholder="Precio" required />
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">Agregar</button>
+        </div>
+      </form>
+
+      <h2 class="h4 mb-3">Lista de Productos</h2>
+      <table class="table table-striped table-bordered text-center">
+        <thead class="table-primary">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaProductos"></tbody>
+      </table>
+    </div>
+
+    <!-- Vista: Agregar Vendedor -->
+    <div id="vista-vendedor" class="vista d-none">
+      <h2 class="h4 mb-3">Agregar Vendedor</h2>
+      <form id="vendedorForm" class="row g-3 mb-4">
+        <div class="col-md-6">
+          <input type="text" id="nombreVendedor" class="form-control" placeholder="Nombre" required />
+        </div>
+        <div class="col-md-6">
+          <input type="email" id="correoVendedor" class="form-control" placeholder="Correo" required />
+        </div>
+        <div class="col-12 col-md-3 mt-3">
+          <button type="submit" class="btn btn-primary w-100">Agregar</button>
+        </div>
+      </form>
+
+      <h2 class="h4 mb-3">Lista de Vendedores</h2>
+      <table class="table table-striped table-bordered text-center">
+        <thead class="table-primary">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaVendedores"></tbody>
+      </table>
+    </div>
+
+    <!-- Vista: Registrar Venta -->
+    <div id="vista-venta" class="vista d-none">
+      <h2 class="h4 mb-3">Registrar Venta</h2>
+      <form id="ventaForm" class="row g-3 mb-4">
+        <div class="col-md-4">
+          <select id="productoId" class="form-select" required></select>
+        </div>
+        <div class="col-md-4">
+          <select id="vendedorId" class="form-select" required></select>
+        </div>
+        <div class="col-md-2">
+          <input type="number" id="cantidad" class="form-control" placeholder="Cantidad" min="1" required />
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-success w-100">Registrar</button>
+        </div>
+      </form>
+
+      <h2 class="h4 mb-3">Lista de Ventas</h2>
+      <table class="table table-striped table-bordered text-center">
+        <thead class="table-success">
+          <tr>
+            <th>ID Venta</th>
+            <th>Producto</th>
+            <th>Vendedor</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody id="tablaVentas"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
